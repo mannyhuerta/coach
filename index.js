@@ -28,7 +28,7 @@ myEmitter.on('event', (heartRate) => {
 	.catch((err) => { console.log(`err: ${err}`) })
 });
 
-
+if(process.env.NODE_ENV === 'development'){
 noble.on('stateChange', function(state) {
   if (state === 'poweredOn') {
     noble.startScanning();
@@ -36,6 +36,7 @@ noble.on('stateChange', function(state) {
     noble.stopScanning();
   }
 });
+
 
 noble.on('discover', function(peripheral) {
 console.log(peripheral.uuid);
@@ -69,10 +70,12 @@ console.log(peripheral.uuid);
 		}
 		
 	});
-
   }
   else {
 	console.log("Andere...");
   }
 });
+}else{
+	setInterval(() => {	myEmitter.emit('event', Math.floor(Math.random() * 120) + 60) }, 1000)
 
+}

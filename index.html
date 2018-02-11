@@ -1,0 +1,21 @@
+<script src="/socket.io/socket.io.js"></script>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  $(function () {
+    var socket = io()
+      socket.on('heartRate', (event) => {
+          console.log('setting heartRate: ' + event)
+          $('#heartrate').text(event)
+      });
+ 
+  });
+</script>
+
+<html>
+    <body>
+        my heart rate: <div id='heartrate'>67</div>
+
+    </body>
+</html>
