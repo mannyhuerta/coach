@@ -57,7 +57,7 @@ function motivate(percentAchieved) {
 }
 
 function heartBeat() {
-	process.env.ENV === 'pi' ? player.play('beat.mp3') : ''
+	workoutStatus === "on" && process.env.ENV === 'pi' ? player.play('beat.mp3') : ''
 }
 
 playLoop(heartBeat, 1000)
