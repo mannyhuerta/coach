@@ -23,7 +23,7 @@ const myEmitter = new EventEmitter();
 myEmitter.once('newListener', (event, listener) => {
 });
 myEmitter.on('event', (heartRate) => {
-	update(thingName, { "state" :  { "reported" : { "heartRate" : heartRate } } })
+	update(thingName, 'heartRate', { "state" :  { "reported" : { "heartRate" : heartRate } } })
 	.then((res) => { console.log(`updated thing shadow with heart rate: ${heartRate}`) })
 	.catch((err) => { console.log(`err: ${err}`) })
 });

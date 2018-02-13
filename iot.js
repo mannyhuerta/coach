@@ -17,11 +17,13 @@ const thingShadows = thingShadow({
     host: host
 });
 
-function update(thingName, payload) {
+function update(thingName, topic, payload) {
 	return new Promise((resolve, reject) => {
 	    try {
 		//thingShadows.update(thingName, payload)
-		thingShadows.publish('heartRate', JSON.stringify(payload))
+		console.log(thingName, topic, payload)
+		thingShadows.publish(topic, JSON.stringify(payload))
+		thingShadows.update(thingName, payload)
 		resolve('success')
 	    } catch (err) {
 		reject(err)
