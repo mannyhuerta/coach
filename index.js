@@ -28,6 +28,7 @@ myEmitter.on('event', (heartRate) => {
 	.catch((err) => { console.log(`err: ${err}`) })
 });
 
+console.log(process.env.NODE_ENV)
 if(process.env.NODE_ENV === 'development'){
 noble.on('stateChange', function(state) {
   if (state === 'poweredOn') {
@@ -76,6 +77,6 @@ console.log(peripheral.uuid);
   }
 });
 }else{
-	setInterval(() => {	myEmitter.emit('event', Math.floor(Math.random() * 120) + 60) }, 1000)
+		setInterval(() => {	myEmitter.emit('event', Math.floor(Math.random() * 120) + 60) }, 1000)
 
 }

@@ -33,7 +33,8 @@ thingShadows.subscribe('heartRate')
 
 
 thingShadows.on('message', function(topic, payload) {
-    heartRate = JSON.parse(payload.toString()).state.reported.heartRate
+    var payloadObj = JSON.parse(payload.toString())
+    payloadObj.state && payloadObj.state.reported && payloadObj.state.reported.heartRate ? heartRate = payloadObj.state.reported : 65
 });
 
 
