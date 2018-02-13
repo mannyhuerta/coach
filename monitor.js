@@ -2,9 +2,6 @@ const noble = require('noble');
 const fileSystem = require('fs')
 const EventEmitter = require('events');
 const player = require('play-sound')(opts = {player: 'omxplayer'})
-const app = require('express')();
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
 const { thingShadows, update } = require('./iot')
 const thingName = 'heart_rate_monitor'
 
@@ -21,7 +18,6 @@ function setWorkoutStatus(status, callback) {
 
 function playLoop(playSound, timeout) {
     playSound()
-    io.emit('heartRate',  heartRate)
 	setTimeout(() => { playLoop(playSound, (60/heartRate)*1000) }, timeout)
 }
 
@@ -95,21 +91,3 @@ thingShadows.on('message', function(topic, payload) {
    
   	//startInterval((heartRate/60)*1000)
 });
-
-
-app.get('/', function(req, res){
-    res.sendFile(__dirname + '/index.html');
-  });
-  
-  io.on('connection', function(socket){
-    console.log('a user connected');
-    
-  });
-  
-  http.listen(3000, function(){
-    console.log('listening on *:3000');
-  });
-
-// set workout to off, initially
-
-
