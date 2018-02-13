@@ -26,31 +26,31 @@ function motivate(percentAchieved) {
     if(motivationCount % 10 === 0){
     if(percentAchieved > 2){
         console.log('Uhh you are you still alive?')
-        process.env.ENV === 'pi'  && player.play('1')
+        process.env.ENV === 'pi'  && player.play('1.mp3')
     }else if(percentAchieved > 1.5){
         console.log(`Slow it down! You're 50% passed target`)
-        process.env.ENV === 'pi'  && player.play('2')
+        process.env.ENV === 'pi'  && player.play('2.mp3')
     }else if(percentAchieved > 1.25){
         console.log(`You're doing great, but slow it down a bit`)
-        process.env.ENV === 'pi'  && player.play('3')
+        process.env.ENV === 'pi'  && player.play('3.mp3')
     }else if(percentAchieved > 1.10){
         console.log(`You're about 10% over target`)
-        process.env.ENV === 'pi'  && player.play('4')
+        process.env.ENV === 'pi'  && player.play('4.mp3')
     }else if(percentAchieved > .97){
         console.log(`Awesome! Keep it here`)
-        process.env.ENV === 'pi'  && player.play('5')
+        process.env.ENV === 'pi'  && player.play('5.mp3')
     }else if(percentAchieved > .9){
         console.log(`You're almost there, a tiny bit more to go`)
-        process.env.ENV === 'pi'  && player.play('6')
+        process.env.ENV === 'pi'  && player.play('6.mp3')
     }else if(percentAchieved > .85){
         console.log(`About 15% more to go! Keep it up!`)
-        process.env.ENV === 'pi'  && player.play('7')
+        process.env.ENV === 'pi'  && player.play('7.mp3')
     }else if(percentAchieved > .75){
         console.log(`Hello? Are you there? Pick up the pace!`)
-        process.env.ENV === 'pi'  && player.play('8')
+        process.env.ENV === 'pi'  && player.play('8.mp3')
     }else {
         console.log(`You're gonna have to give it a bit more!`)
-        process.env.ENV === 'pi'  && player.play('9')
+        process.env.ENV === 'pi'  && player.play('9.mp3')
     }
     }
     motivationCount++
